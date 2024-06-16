@@ -77,8 +77,33 @@ equal_string(){
 
 }
 
+sentence(){
+    sen=$1
+    sen=${sen//[^a-zA-Z]/ }
+    sen=${sen^^}
+    for word in "${sen}"; do
+        echo "$word"
+        echo 1
+    done
+}
+
+#!/usr/bin/env bash
+
+acronym() {
+	acronym=""
+	sentence=${1//[^a-zA-Z\']/ }
+	sentence="${sentence^^}"
+	for word in ${sentence}
+	do
+		acronym="$acronym${word:0:1}"
+	done
+	echo $acronym
+}
+
+main "$@"	
+
 main(){
-    equal_string "$@"
+    acronym "$@"
 }
 
 main "$@"
