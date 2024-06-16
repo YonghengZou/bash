@@ -41,6 +41,20 @@ curly_braces(){
     echo {a,b,bcc}
     echo {a..d}
     { echo "Hello"; echo "World"; }
+
+    # Variable Substitution
+    # Curly braces can be used in variable substitution to clearly delimit the variable name from surrounding text.
+    name=({a..c})
+    echo "Hello, ${name[@]}"
+    # Output: Hello, John!
+
+    # Useful to avoid ambiguity
+    number=5
+    echo "This is item ${number}."
+    # Output: This is item 5A.
+    number=(1 2 3 4 4)
+    echo "This is item ${number[0]}."
+
 }
 
 main(){
