@@ -57,8 +57,13 @@ curly_braces(){
 
 }
 
+get_length(){
+    local s1="$1" # or s1=$1
+    echo "${#s1}" # or echo "${@s1}"
+}
+
 main(){
-    curly_braces
+    get_length "$@"
 }
 
 main "$@"
