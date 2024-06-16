@@ -62,8 +62,23 @@ get_length(){
     echo "${#s1}" # or echo "${@s1}"
 }
 
+equal_string(){
+
+    # -ne: Used for numeric comparisons. It checks if two numbers are not equal.
+    # !=: Used for string comparisons. It checks if two strings are not equal.
+    local s1=$1
+    local s2=$2
+
+    if [ ${#s1} -eq ${#s2} ]; then
+        echo "equa"
+    else
+        echo "not equa"
+    fi
+
+}
+
 main(){
-    get_length "$@"
+    equal_string "$@"
 }
 
 main "$@"
